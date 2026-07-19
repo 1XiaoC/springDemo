@@ -1,0 +1,9 @@
+#配置项目统一访问根路径前缀，所有接口地址前面都要拼接 /api。
+#server:
+#  servlet:
+#    context-path: /api
+
+#指定 Spring Boot 激活 dev 环境配置。
+spring:
+  profiles:
+    active: dev
