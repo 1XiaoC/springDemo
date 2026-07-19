@@ -18,7 +18,7 @@ public class User {
     //标注实体类主键字段，用来映射数据库主键，定义主键生成策略，替代 @TableField 处理主键
     @TableId
     private Long id;
-    private String name; 
+    private String name;
     private Integer age;
     private String email;
     //Java 实体规范使用驼峰命名 createTime，数据库规范使用下划线命名 create_time。

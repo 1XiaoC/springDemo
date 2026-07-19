@@ -1,13 +1,24 @@
 package com.example.springdemo.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.example.springdemo.entity.User;
+import com.example.springdemo.mapper.UserMapper;
+import jakarta.annotation.Resource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")//给类 / 方法绑定统一访问前缀 /user。
 public class UserController{
+
+    //通过 @Mapper 或 @MapperScan 交给 Spring 管理，生成代理对象存入 Spring 容器。
+    @Resource
+    private UserMapper userMapper;
+
     //*新增用户
     @PostMapping("/user")
     public String save(@RequestBody User user) {
@@ -22,8 +33,8 @@ public class UserController{
     }
     /*查询所有用户*/
     @GetMapping("/user")//无参数查询
-    public String getAll() {
-        return "查询所有用户成功";
+    public List getAll() {
+        return userMapper.selectList(new LambdaQueryWrapper<>());
     }
     /*查询用户*/
     @GetMapping("/user/{id}")//有参数查询
