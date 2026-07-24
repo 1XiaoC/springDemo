@@ -25,7 +25,7 @@ public class SpringDemoApplication {
 //        return "Hello Spring 8oat";
 //    }
 
-    @PostMapping("/user")//限定接口只接收 POST 请求，请求地址为 /user
+    @PostMapping(/*"/user"*/)//限定接口只接收 POST 请求，请求地址为 /user
     public String hello(@RequestBody User user) {
         //@RequestBody：读取请求体（Body）里的 JSON 数据；
         //Spring 自动把 JSON 字符串转为 User 实体对象；

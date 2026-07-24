@@ -25,7 +25,7 @@ public class User {
     //MyBatis-Plus 默认开启自动驼峰转下划线，大部分时候不加这个注解也能自动匹配；
     @TableField(value ="create_time")
     private LocalDateTime createTime;
-    @TableField(value ="updateTime")
+    @TableField(value ="update_time")
     private LocalDateTime updateTime;
 
 }

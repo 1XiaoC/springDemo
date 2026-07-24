@@ -36,8 +36,8 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-bom</artifactId>
-                <!-- 使用稳定版本 3.5.9 -->
-                <version>3.5.9</version>
+                <!-- 使用 3.5.17 支持 Spring Boot 4.x -->
+                <version>3.5.17</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -68,7 +68,7 @@
         <!-- MyBatis-Plus 启动器，自动配置 MyBatis-Plus，提供 BaseMapper 等 ORM 能力 -->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+            <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
         </dependency>
 
         <!-- 代码生成工具，通过注解自动生成 getter/setter/toString 等模板代码 -->
