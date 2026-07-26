@@ -3,6 +3,7 @@ package com.example.springdemo.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +24,11 @@ public class User {
     private String email;
     //Java 实体规范使用驼峰命名 createTime，数据库规范使用下划线命名 create_time。
     //MyBatis-Plus 默认开启自动驼峰转下划线，大部分时候不加这个注解也能自动匹配；
+    //作用 后端把实体对象转为 JSON 返回前端时，格式化时间输出。
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @TableField(value ="create_time")
     private LocalDateTime createTime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @TableField(value ="update_time")
     private LocalDateTime updateTime;
 

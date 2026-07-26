@@ -71,6 +71,12 @@
             <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
         </dependency>
 
+        <!-- MyBatis-Plus JSqlParser 支持，用于多租户、数据权限等需要解析 SQL 的功能 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
+        </dependency>
+
         <!-- 代码生成工具，通过注解自动生成 getter/setter/toString 等模板代码 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -90,6 +96,7 @@
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

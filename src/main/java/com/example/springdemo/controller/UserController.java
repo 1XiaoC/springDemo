@@ -2,6 +2,7 @@ package com.example.springdemo.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springdemo.entity.User;
 import com.example.springdemo.mapper.UserMapper;
 import jakarta.annotation.Resource;
@@ -31,11 +32,19 @@ public class UserController{
 //        }
         return "用户新增成功";
     }
+
     /*查询所有用户*/
     @GetMapping("/user")//无参数查询
-    public List getAll() {
-        return userMapper.selectList(new LambdaQueryWrapper<>());
+    public Page<User> getAll() {
+        return userMapper.selectPage(new Page<User>(1, 10), new LambdaQueryWrapper<>());
+        //实现分页查询所有用户，不再一次性查出全部数据，只分页加载，适合数据量大的场景。
     }
+/*    public List getAll() {
+   提供一个查询全部用户的后端接口，前端发送 GET 请求就能拿到数据库 user 表里所有用户数据。
+       return userMapper.selectList(new LambdaQueryWrapper<>());
+  }*/
+
+
     /*查询用户*/
     @GetMapping("/user/{id}")//有参数查询
     public String get(@PathVariable Integer id) {
