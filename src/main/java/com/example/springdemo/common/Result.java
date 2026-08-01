@@ -1,9 +1,7 @@
 package com.example.springdemo.common;
 
-
 import lombok.Data;
 import java.io.Serializable;
-import java.security.PrivateKey;
 
 //Lombok 提供的注解：
 //自动生成当前类所有属性的 getter、setter、toString、equals、hashCode 方法，省去手动编写。
