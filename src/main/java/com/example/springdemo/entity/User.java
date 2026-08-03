@@ -1,8 +1,6 @@
 package com.example.springdemo.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor//生成无参构造方法
 public class User {
     //标注实体类主键字段，用来映射数据库主键，定义主键生成策略，替代 @TableField 处理主键
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
     private String name;
     private Integer age;
@@ -26,10 +24,10 @@ public class User {
     //MyBatis-Plus 默认开启自动驼峰转下划线，大部分时候不加这个注解也能自动匹配；
     //作用 后端把实体对象转为 JSON 返回前端时，格式化时间输出。
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @TableField(value ="create_time")
+    @TableField(value ="create_time", fill = FieldFill.INSERT)//自动填充时间
     private LocalDateTime createTime;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @TableField(value ="update_time")
+    @TableField(value ="update_time", fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
 
 }
