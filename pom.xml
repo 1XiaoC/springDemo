@@ -104,6 +104,13 @@
             <version>3.0.3</version>
         </dependency>
 
+        <!--SpringBoot AOP 启动器，提供面向切面编程能力。可以在不修改原有业务代码的前提下
+        对方法做增强：日志打印、权限校验、接口耗时统计、异常拦截、操作日志记录等。-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aspectj</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
